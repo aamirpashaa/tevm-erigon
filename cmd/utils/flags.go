@@ -611,6 +611,10 @@ func setBootstrapNodes(ctx *cli.Context, cfg *p2p.Config) {
 			urls = params.KovanBootnodes
 		case params.FermionChainName:
 			urls = params.FermionBootnodes
+		case params.TelosEVMMainnetChainName:
+			urls = params.TelosEVMMainnetBootnodes
+		case params.TelosEVMTestnetChainName:
+			urls = params.TelosEVMTestnetBootnodes
 		default:
 			if cfg.BootstrapNodes != nil {
 				return // already set, don't apply defaults.
@@ -646,6 +650,10 @@ func setBootstrapNodesV5(ctx *cli.Context, cfg *p2p.Config) {
 			urls = params.KovanBootnodes
 		case params.FermionChainName:
 			urls = params.FermionBootnodes
+		case params.TelosEVMMainnetChainName:
+			urls = params.TelosEVMMainnetBootnodes
+		case params.TelosEVMTestnetChainName:
+			urls = params.TelosEVMTestnetBootnodes
 		default:
 			if cfg.BootstrapNodesV5 != nil {
 				return // already set, don't apply defaults.
@@ -916,6 +924,10 @@ func DataDirForNetwork(datadir string, network string) string {
 		return filepath.Join(datadir, "fermion")
 	case params.SepoliaChainName:
 		return filepath.Join(datadir, "sepolia")
+	case params.TelosEVMMainnetChainName:
+		return filepath.Join(datadir, "telosevmmainnet")
+	case params.TelosEVMTestnetChainName:
+		return filepath.Join(datadir, "telosevmtestnet")
 	default:
 		return datadir
 	}
@@ -1303,6 +1315,16 @@ func SetEthConfig(ctx *cli.Context, nodeConfig *node.Config, cfg *ethconfig.Conf
 			cfg.NetworkID = 1212120
 		}
 		cfg.Genesis = core.DefaultFermionGenesisBlock()
+	case params.TelosEVMMainnetChainName:
+		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
+			cfg.NetworkID = 40
+		}
+		cfg.Genesis = core.DefaultTelosEVMMainnetGenesisBlock()
+	case params.TelosEVMTestnetChainName:
+		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
+			cfg.NetworkID = 41
+		}
+		cfg.Genesis = core.DefaultTelosEVMTestnetGenesisBlock()
 	case params.DevChainName:
 		if !ctx.GlobalIsSet(NetworkIdFlag.Name) {
 			cfg.NetworkID = 1337
@@ -1383,6 +1405,10 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 		genesis = core.DefaultKovanGenesisBlock()
 	case params.FermionChainName:
 		genesis = core.DefaultFermionGenesisBlock()
+	case params.TelosEVMMainnetChainName:
+		genesis = core.DefaultTelosEVMMainnetGenesisBlock()
+	case params.TelosEVMTestnetChainName:
+		genesis = core.DefaultTelosEVMTestnetGenesisBlock()
 	case params.DevChainName:
 		Fatalf("Developer chains are ephemeral")
 	}

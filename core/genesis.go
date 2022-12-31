@@ -297,6 +297,10 @@ func (g *Genesis) configOrDefault(ghash common.Hash) *params.ChainConfig {
 		return params.KovanChainConfig
 	case ghash == params.FermionGenesisHash:
 		return params.FermionChainConfig
+	case ghash == params.TelosEVMMainnetGenesisHash:
+		return params.TelosEVMMainnetChainConfig
+	case ghash == params.TelosEVMTestnetGenesisHash:
+		return params.TelosEVMTestnetChainConfig
 	default:
 		return params.AllEthashProtocolChanges
 	}
@@ -408,7 +412,7 @@ func (g *Genesis) WriteGenesisState(tx kv.RwTx) (*types.Block, *state.IntraBlock
 		}
 	}
 
-	if block.Number().Sign() != 0 {
+	if g.Config.ChainName != "telosevmmainnet" && g.Config.ChainName != "telosevmtestnet" && block.Number().Sign() != 0 {
 		return nil, statedb, fmt.Errorf("can't commit genesis block with number > 0")
 	}
 
@@ -630,6 +634,30 @@ func DefaultFermionGenesisBlock() *Genesis {
 		GasLimit:   0x5B8D80,
 		Difficulty: big.NewInt(0x20000),
 		Alloc:      readPrealloc("allocs/fermion.json"),
+	}
+}
+
+func DefaultTelosEVMMainnetGenesisBlock() *Genesis {
+	return &Genesis{
+		Config:     params.TelosEVMMainnetChainConfig,
+		Nonce:      0,
+		ExtraData:  hexutil.MustDecode("0x0ac53eebcfa1cf139272bf58540d6dc53f0d22785f9e3d74cb9bc333b597e1bf"),
+		GasLimit:   0,
+		Difficulty: big.NewInt(0),
+		Number:     180698823,
+		Timestamp:  1635263316,
+	}
+}
+
+func DefaultTelosEVMTestnetGenesisBlock() *Genesis {
+	return &Genesis{
+		Config:     params.TelosEVMTestnetChainConfig,
+		Nonce:      0,
+		ExtraData:  hexutil.MustDecode("0x0821345567cd66541778157d3936896f62a5b3fa134bb34d9708aa52f0c8c713"),
+		GasLimit:   0,
+		Difficulty: big.NewInt(0),
+		Number:     136393756,
+		Timestamp:  1634795255,
 	}
 }
 

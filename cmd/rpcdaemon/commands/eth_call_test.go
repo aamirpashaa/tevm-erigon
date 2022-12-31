@@ -93,7 +93,7 @@ func TestGetBlockByTimestampOldestTime(t *testing.T) {
 	stateCache := kvcache.New(kvcache.DefaultCoherentConfig)
 	api := NewErigonAPI(NewBaseApi(nil, stateCache, false), db, nil)
 
-	oldestBlock, err := rawdb.ReadBlockByNumber(tx, 0)
+	oldestBlock, err := rawdb.ReadBlockByNumber(tx, 180698823)
 	if err != nil {
 		t.Error("couldn't retrieve oldest block")
 	}

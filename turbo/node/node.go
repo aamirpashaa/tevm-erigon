@@ -64,6 +64,12 @@ func NewNodConfigUrfave(ctx *cli.Context) *node.Config {
 	case params.GoerliChainName:
 		log.Info("Starting Erigon on Görli testnet...")
 
+	case params.TelosEVMMainnetChainName:
+		log.Info("Starting Erigon on TelosEVMMainnet...")
+
+	case params.TelosEVMTestnetChainName:
+		log.Info("Starting Erigon on TelosEVMTestnet...")
+
 	case params.DevChainName:
 		log.Info("Starting Erigon in ephemeral dev mode...")
 

@@ -26,16 +26,18 @@ import (
 )
 
 const (
-	MainnetChainName = "mainnet"
-	SepoliaChainName = "sepolia"
-	RopstenChainName = "ropsten"
-	RinkebyChainName = "rinkeby"
-	GoerliChainName  = "goerli"
-	DevChainName     = "dev"
-	ErigonMineName   = "erigonmine"
-	SokolChainName   = "sokol"
-	KovanChainName   = "kovan"
-	FermionChainName = "fermion"
+	MainnetChainName         = "mainnet"
+	SepoliaChainName         = "sepolia"
+	RopstenChainName         = "ropsten"
+	RinkebyChainName         = "rinkeby"
+	GoerliChainName          = "goerli"
+	DevChainName             = "dev"
+	ErigonMineName           = "erigonmine"
+	SokolChainName           = "sokol"
+	KovanChainName           = "kovan"
+	FermionChainName         = "fermion"
+	TelosEVMMainnetChainName = "telosevmmainnet"
+	TelosEVMTestnetChainName = "telosevmtestnet"
 )
 
 type ConsensusType string
@@ -48,15 +50,17 @@ const (
 
 // Genesis hashes to enforce below configs on.
 var (
-	MainnetGenesisHash = common.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
-	SepoliaGenesisHash = common.HexToHash("0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9")
-	RopstenGenesisHash = common.HexToHash("0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d")
-	RinkebyGenesisHash = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
-	GoerliGenesisHash  = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
-	ErigonGenesisHash  = common.HexToHash("0xfecd5c85712e36f30f09ba3a42386b42c46b5ba5395a4246b952e655f9aa0f58")
-	SokolGenesisHash   = common.HexToHash("0x5b28c1bfd3a15230c9a46b399cd0f9a6920d432e85381cc6a140b06e8410112f")
-	KovanGenesisHash   = common.HexToHash("0xa3c565fc15c7478862d50ccd6561e3c06b24cc509bf388941c25ea985ce32cb9")
-	FermionGenesisHash = common.HexToHash("0x0658360d8680ead416900a552b67b84e6d575c7f0ecab3dbe42406f9f8c34c35")
+	MainnetGenesisHash         = common.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
+	SepoliaGenesisHash         = common.HexToHash("0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9")
+	RopstenGenesisHash         = common.HexToHash("0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d")
+	RinkebyGenesisHash         = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
+	GoerliGenesisHash          = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
+	ErigonGenesisHash          = common.HexToHash("0xfecd5c85712e36f30f09ba3a42386b42c46b5ba5395a4246b952e655f9aa0f58")
+	SokolGenesisHash           = common.HexToHash("0x5b28c1bfd3a15230c9a46b399cd0f9a6920d432e85381cc6a140b06e8410112f")
+	KovanGenesisHash           = common.HexToHash("0xa3c565fc15c7478862d50ccd6561e3c06b24cc509bf388941c25ea985ce32cb9")
+	FermionGenesisHash         = common.HexToHash("0x0658360d8680ead416900a552b67b84e6d575c7f0ecab3dbe42406f9f8c34c35")
+	TelosEVMMainnetGenesisHash = common.HexToHash("0x9bd7e881e0903ea4fa161c7f00096c11346f122bff30a3a5122ef5c1f9c9f80c")
+	TelosEVMTestnetGenesisHash = common.HexToHash("0x3ba6f4ac4f5b74e8e62622b9d8c75d1e4ad10abb3b7e4770cbab7338a861a4f9")
 )
 
 var (
@@ -184,6 +188,38 @@ var (
 			Period: 15,
 			Epoch:  30000,
 		},
+	}
+
+	// TelosEVMMainnetChainConfig contains the chain parameters to run a node on the TelosEVMMainnet network.
+	TelosEVMMainnetChainConfig = &ChainConfig{
+		ChainName:           TelosEVMMainnetChainName,
+		ChainID:             big.NewInt(40),
+		HomesteadBlock:      big.NewInt(180_698_823),
+		DAOForkBlock:        nil,
+		DAOForkSupport:      true,
+		EIP150Block:         big.NewInt(180_698_823),
+		EIP155Block:         big.NewInt(180_698_823),
+		EIP158Block:         big.NewInt(180_698_823),
+		ByzantiumBlock:      big.NewInt(180_698_823),
+		ConstantinopleBlock: big.NewInt(180_698_823),
+		PetersburgBlock:     big.NewInt(180_698_823),
+		IstanbulBlock:       big.NewInt(180_698_823),
+	}
+
+	// TelosEVMTestnetChainConfig contains the chain parameters to run a node on the TelosEVMTestnet network.
+	TelosEVMTestnetChainConfig = &ChainConfig{
+		ChainName:           TelosEVMTestnetChainName,
+		ChainID:             big.NewInt(41),
+		HomesteadBlock:      big.NewInt(136_393_756),
+		DAOForkBlock:        nil,
+		DAOForkSupport:      true,
+		EIP150Block:         big.NewInt(136_393_756),
+		EIP155Block:         big.NewInt(136_393_756),
+		EIP158Block:         big.NewInt(136_393_756),
+		ByzantiumBlock:      big.NewInt(136_393_756),
+		ConstantinopleBlock: big.NewInt(136_393_756),
+		PetersburgBlock:     big.NewInt(136_393_756),
+		IstanbulBlock:       big.NewInt(136_393_756),
 	}
 
 	// MainnetChainConfig is the chain parameters to run a PoW dev net to test Erigon mining

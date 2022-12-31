@@ -74,6 +74,14 @@ var GoerliBootnodes = []string{
 	"enode://a59e33ccd2b3e52d578f1fbd70c6f9babda2650f0760d6ff3b37742fdcdfdb3defba5d56d315b40c46b70198c7621e63ffa3f987389c7118634b0fefbbdfa7fd@51.15.119.157:40303",
 }
 
+// TelosEVMMainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
+// TelosEVMMainnet network.
+var TelosEVMMainnetBootnodes = []string{}
+
+// TelosEVMTestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
+// TelosEVMTestnet network.
+var TelosEVMTestnetBootnodes = []string{}
+
 // ErigonBootnodes are the enode URLs of the P2P bootstrap nodes running on the ErigonNodes devnet
 var ErigonBootnodes = []string{}
 
@@ -128,6 +136,10 @@ func KnownDNSNetwork(genesis common.Hash, protocol string) string {
 		net = "rinkeby"
 	case GoerliGenesisHash:
 		net = "goerli"
+	case TelosEVMMainnetGenesisHash:
+		net = "telosevmmainnet"
+	case TelosEVMTestnetGenesisHash:
+		net = "telosevmtestnet"
 	default:
 		return ""
 	}

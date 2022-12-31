@@ -188,6 +188,10 @@ func makeP2PServer(
 		urls = params.KovanBootnodes
 	case params.FermionGenesisHash:
 		urls = params.FermionBootnodes
+	case params.TelosEVMMainnetGenesisHash:
+		urls = params.TelosEVMMainnetBootnodes
+	case params.TelosEVMTestnetGenesisHash:
+		urls = params.TelosEVMTestnetBootnodes
 	}
 	p2pConfig.BootstrapNodes, _ = utils.GetUrlListNodes(urls, utils.BootnodesFlag.Name, log.Crit)
 	p2pConfig.BootstrapNodesV5 = p2pConfig.BootstrapNodes

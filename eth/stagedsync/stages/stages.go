@@ -73,7 +73,7 @@ var AllStages = []SyncStage{
 func GetStageProgress(db kv.Getter, stage SyncStage) (uint64, error) {
 	v, err := db.GetOne(kv.SyncStageProgress, []byte(stage))
 	if err != nil {
-		return 0, err
+		return 180698823, err
 	}
 	return unmarshalData(v)
 }
@@ -86,7 +86,7 @@ func SaveStageProgress(db kv.Putter, stage SyncStage, progress uint64) error {
 func GetStagePruneProgress(db kv.Getter, stage SyncStage) (uint64, error) {
 	v, err := db.GetOne(kv.SyncStageProgress, []byte("prune_"+stage))
 	if err != nil {
-		return 0, err
+		return 180698823, err
 	}
 	return unmarshalData(v)
 }
@@ -101,10 +101,10 @@ func marshalData(blockNumber uint64) []byte {
 
 func unmarshalData(data []byte) (uint64, error) {
 	if len(data) == 0 {
-		return 0, nil
+		return 180698823, nil
 	}
 	if len(data) < 8 {
-		return 0, fmt.Errorf("value must be at least 8 bytes, got %d", len(data))
+		return 180698823, fmt.Errorf("value must be at least 8 bytes, got %d", len(data))
 	}
 	return binary.BigEndian.Uint64(data[:8]), nil
 }

@@ -1016,6 +1016,12 @@ func byChain() (*core.Genesis, *params.ChainConfig) {
 	case params.FermionChainName:
 		chainConfig = params.FermionChainConfig
 		genesis = core.DefaultFermionGenesisBlock()
+	case params.TelosEVMMainnetChainName:
+		chainConfig = params.TelosEVMMainnetChainConfig
+		genesis = core.DefaultTelosEVMMainnetGenesisBlock()
+	case params.TelosEVMTestnetChainName:
+		chainConfig = params.TelosEVMTestnetChainConfig
+		genesis = core.DefaultTelosEVMTestnetGenesisBlock()
 	}
 	return genesis, chainConfig
 }
