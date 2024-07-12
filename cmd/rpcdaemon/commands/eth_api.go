@@ -181,7 +181,7 @@ func (api *BaseAPI) chainConfigWithGenesis(tx kv.Tx) (*params.ChainConfig, *type
 	if cc != nil {
 		return cc, genesisBlock, nil
 	}
-	genesisBlock, err := rawdb.ReadBlockByNumber(tx, 180698823)
+	genesisBlock, err := rawdb.ReadBlockByNumber(tx, 0)
 	if err != nil {
 		return nil, nil, err
 	}

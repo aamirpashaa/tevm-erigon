@@ -59,7 +59,7 @@ var (
 	SokolGenesisHash           = common.HexToHash("0x5b28c1bfd3a15230c9a46b399cd0f9a6920d432e85381cc6a140b06e8410112f")
 	KovanGenesisHash           = common.HexToHash("0xa3c565fc15c7478862d50ccd6561e3c06b24cc509bf388941c25ea985ce32cb9")
 	FermionGenesisHash         = common.HexToHash("0x0658360d8680ead416900a552b67b84e6d575c7f0ecab3dbe42406f9f8c34c35")
-	TelosEVMMainnetGenesisHash = common.HexToHash("0x9bd7e881e0903ea4fa161c7f00096c11346f122bff30a3a5122ef5c1f9c9f80c")
+	TelosEVMMainnetGenesisHash = common.HexToHash("0x757720a8e51c63ef1d4f907d6569dacaa965e91c2661345902de18af11f81063")
 	TelosEVMTestnetGenesisHash = common.HexToHash("0x3ba6f4ac4f5b74e8e62622b9d8c75d1e4ad10abb3b7e4770cbab7338a861a4f9")
 )
 
@@ -194,32 +194,32 @@ var (
 	TelosEVMMainnetChainConfig = &ChainConfig{
 		ChainName:           TelosEVMMainnetChainName,
 		ChainID:             big.NewInt(40),
-		HomesteadBlock:      big.NewInt(180_698_823),
+		HomesteadBlock:      big.NewInt(0),
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
-		EIP150Block:         big.NewInt(180_698_823),
-		EIP155Block:         big.NewInt(180_698_823),
-		EIP158Block:         big.NewInt(180_698_823),
-		ByzantiumBlock:      big.NewInt(180_698_823),
-		ConstantinopleBlock: big.NewInt(180_698_823),
-		PetersburgBlock:     big.NewInt(180_698_823),
-		IstanbulBlock:       big.NewInt(180_698_823),
+		EIP150Block:         big.NewInt(0),
+		EIP155Block:         big.NewInt(0),
+		EIP158Block:         big.NewInt(0),
+		ByzantiumBlock:      big.NewInt(0),
+		ConstantinopleBlock: big.NewInt(0),
+		PetersburgBlock:     big.NewInt(0),
+		IstanbulBlock:       big.NewInt(0),
 	}
 
 	// TelosEVMTestnetChainConfig contains the chain parameters to run a node on the TelosEVMTestnet network.
 	TelosEVMTestnetChainConfig = &ChainConfig{
 		ChainName:           TelosEVMTestnetChainName,
 		ChainID:             big.NewInt(41),
-		HomesteadBlock:      big.NewInt(136_393_756),
+		HomesteadBlock:      big.NewInt(0),
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
-		EIP150Block:         big.NewInt(136_393_756),
-		EIP155Block:         big.NewInt(136_393_756),
-		EIP158Block:         big.NewInt(136_393_756),
-		ByzantiumBlock:      big.NewInt(136_393_756),
-		ConstantinopleBlock: big.NewInt(136_393_756),
-		PetersburgBlock:     big.NewInt(136_393_756),
-		IstanbulBlock:       big.NewInt(136_393_756),
+		EIP150Block:         big.NewInt(0),
+		EIP155Block:         big.NewInt(0),
+		EIP158Block:         big.NewInt(0),
+		ByzantiumBlock:      big.NewInt(0),
+		ConstantinopleBlock: big.NewInt(0),
+		PetersburgBlock:     big.NewInt(0),
+		IstanbulBlock:       big.NewInt(0),
 	}
 
 	// MainnetChainConfig is the chain parameters to run a PoW dev net to test Erigon mining

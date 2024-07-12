@@ -21,7 +21,7 @@ func ParseFloat64(str string) float64 {
 }
 
 func ChainConfig(tx kv.Tx) *params.ChainConfig {
-	genesisBlock, err := rawdb.ReadBlockByNumber(tx, 180698823)
+	genesisBlock, err := rawdb.ReadBlockByNumber(tx, 0)
 	Check(err)
 	chainConfig, err := rawdb.ReadChainConfig(tx, genesisBlock.Hash())
 	Check(err)

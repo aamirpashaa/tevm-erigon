@@ -471,10 +471,10 @@ func ResetHashState(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.ContractCode); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.HashState, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.HashState, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.HashState, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.HashState, 0); err != nil {
 		return err
 	}
 
@@ -488,10 +488,10 @@ func ResetIH(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.TrieOfStorage); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.IntermediateHashes, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.IntermediateHashes, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.IntermediateHashes, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.IntermediateHashes, 0); err != nil {
 		return err
 	}
 	return nil

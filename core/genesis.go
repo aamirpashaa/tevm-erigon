@@ -641,11 +641,12 @@ func DefaultTelosEVMMainnetGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.TelosEVMMainnetChainConfig,
 		Nonce:      0,
-		ExtraData:  hexutil.MustDecode("0x0ac53eebcfa1cf139272bf58540d6dc53f0d22785f9e3d74cb9bc333b597e1bf"),
-		GasLimit:   0,
+		ExtraData:  hexutil.MustDecode("0x00000024796a9998ec49fb788de51614c57276dc6151bd2328305dba5d018897"),
+		GasLimit:   2147483647,
 		Difficulty: big.NewInt(0),
-		Number:     180698823,
-		Timestamp:  1635263316,
+		Number:     0,
+		Timestamp:  1544636786,
+		// ParentHash: common.HexToHash("0x87bb009caefe5447b3c4beafb6cc168d031a73eb9c6bb0718b5b5972448908c2"),
 	}
 }
 
@@ -653,11 +654,11 @@ func DefaultTelosEVMTestnetGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.TelosEVMTestnetChainConfig,
 		Nonce:      0,
-		ExtraData:  hexutil.MustDecode("0x0821345567cd66541778157d3936896f62a5b3fa134bb34d9708aa52f0c8c713"),
-		GasLimit:   0,
+		ExtraData:  hexutil.MustDecode("0x000000397128c497668c241b27d1521c764156cea50bcac87892fc8916e23b24"),
+		GasLimit:   2147483647,
 		Difficulty: big.NewInt(0),
-		Number:     136393756,
-		Timestamp:  1634795255,
+		Number:     0,
+		Timestamp:  1565907859,
 	}
 }
 

@@ -89,10 +89,10 @@ func resetSenders(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.Senders); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.Senders, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.Senders, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.Senders, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.Senders, 0); err != nil {
 		return err
 	}
 	return nil
@@ -141,10 +141,10 @@ func resetExec(tx kv.RwTx, g *core.Genesis) error {
 	if err := tx.ClearBucket(kv.PendingEpoch); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.Execution, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.Execution, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.Execution, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.Execution, 0); err != nil {
 		return err
 	}
 
@@ -161,16 +161,16 @@ func resetHistory(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.StorageHistory); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.AccountHistoryIndex, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.AccountHistoryIndex, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.StorageHistoryIndex, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.StorageHistoryIndex, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.AccountHistoryIndex, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.AccountHistoryIndex, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.StorageHistoryIndex, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.StorageHistoryIndex, 0); err != nil {
 		return err
 	}
 
@@ -184,10 +184,10 @@ func resetLogIndex(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.LogTopicIndex); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.LogIndex, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.LogIndex, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.LogIndex, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.LogIndex, 0); err != nil {
 		return err
 	}
 	return nil
@@ -200,10 +200,10 @@ func resetCallTraces(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.CallToIndex); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.CallTraces, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.CallTraces, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.CallTraces, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.CallTraces, 0); err != nil {
 		return err
 	}
 	return nil
@@ -213,30 +213,30 @@ func resetTxLookup(tx kv.RwTx) error {
 	if err := tx.ClearBucket(kv.TxLookup); err != nil {
 		return err
 	}
-	if err := stages.SaveStageProgress(tx, stages.TxLookup, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.TxLookup, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.TxLookup, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.TxLookup, 0); err != nil {
 		return err
 	}
 	return nil
 }
 
 func resetTxPool(tx kv.RwTx) error {
-	if err := stages.SaveStageProgress(tx, stages.TxPool, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.TxPool, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.TxPool, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.TxPool, 0); err != nil {
 		return err
 	}
 	return nil
 }
 
 func resetFinish(tx kv.RwTx) error {
-	if err := stages.SaveStageProgress(tx, stages.Finish, 180698823); err != nil {
+	if err := stages.SaveStageProgress(tx, stages.Finish, 0); err != nil {
 		return err
 	}
-	if err := stages.SaveStagePruneProgress(tx, stages.Finish, 180698823); err != nil {
+	if err := stages.SaveStagePruneProgress(tx, stages.Finish, 0); err != nil {
 		return err
 	}
 	return nil
